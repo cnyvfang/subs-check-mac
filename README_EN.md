@@ -6,6 +6,8 @@
 
 Core repository: [`beck-8/subs-check`](https://github.com/beck-8/subs-check) 🔗
 
+For detailed usage, refer to the upstream `subs-check` repository.
+
 ## 🚀 Quick Start
 
 Default install:

@@ -6,6 +6,8 @@
 
 核心仓库：[`beck-8/subs-check`](https://github.com/beck-8/subs-check) 🔗
 
+具体使用方法请参照 `subs-check` 原仓库说明。
+
 ## 🚀 快速开始
 
 默认安装：
