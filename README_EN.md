@@ -67,11 +67,39 @@ sudo launchctl kickstart -k system/subs-check
 
 ## 🌐 Endpoints
 
+Two ports are exposed by default:
+
+- `8199`: admin panel and locally served subscription files
+- `8299`: built-in `Sub-Store` conversion endpoints
+
+### Admin Panel And Local Subscription Files
+
+| Type | URL | Notes |
+| --- | --- | --- |
+| Admin panel | `http://127.0.0.1:8199/admin` | Web management UI |
+| Clash YAML | `http://127.0.0.1:8199/sub/all.yaml` | Generated directly by `subs-check` |
+| Mihomo YAML | `http://127.0.0.1:8199/sub/mihomo.yaml` | Mihomo/Clash subscription with rules |
+| Base64 | `http://127.0.0.1:8199/sub/base64.txt` | Base64 subscription |
+
+### `Sub-Store` Conversion Endpoints
+
+The links below are added based on the "Subscription Usage" section in the upstream [`beck-8/subs-check`](https://github.com/beck-8/subs-check) README:
+
 | Type | URL |
 | --- | --- |
-| Admin panel | `http://127.0.0.1:8199/admin` |
-| Subscription | `http://127.0.0.1:8199/sub/all.yaml` |
-| Subscription | `http://127.0.0.1:8199/sub/mihomo.yaml` |
+| Generic subscription | `http://127.0.0.1:8299/download/sub` |
+| URI | `http://127.0.0.1:8299/download/sub?target=URI` |
+| Mihomo / ClashMeta | `http://127.0.0.1:8299/download/sub?target=ClashMeta` |
+| Clash | `http://127.0.0.1:8299/download/sub?target=Clash` |
+| V2Ray | `http://127.0.0.1:8299/download/sub?target=V2Ray` |
+| ShadowRocket | `http://127.0.0.1:8299/download/sub?target=ShadowRocket` |
+| Quantumult X | `http://127.0.0.1:8299/download/sub?target=QX` |
+| Sing-Box | `http://127.0.0.1:8299/download/sub?target=sing-box` |
+| Surge | `http://127.0.0.1:8299/download/sub?target=Surge` |
+| Surfboard | `http://127.0.0.1:8299/download/sub?target=Surfboard` |
+| Mihomo / Clash with rules | `http://127.0.0.1:8299/api/file/mihomo` |
+
+The `Mihomo / Clash with rules` endpoint uses `https://raw.githubusercontent.com/beck-8/override-hub/refs/heads/main/yaml/ACL4SSR_Online_Full.yaml` as the default overwrite file. You can change it with `mihomo-overwrite-url` in the config.
 
 ## 📝 Before Use
 

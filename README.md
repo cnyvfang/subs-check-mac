@@ -67,11 +67,39 @@ sudo launchctl kickstart -k system/subs-check
 
 ## 🌐 访问地址
 
+默认会暴露两个端口：
+
+- `8199`：管理面板和本地文件订阅
+- `8299`：内置 `Sub-Store` 转换订阅
+
+### 管理面板与本地文件订阅
+
+| 类型 | 地址 | 说明 |
+| --- | --- | --- |
+| 管理面板 | `http://127.0.0.1:8199/admin` | Web 管理面板 |
+| Clash YAML | `http://127.0.0.1:8199/sub/all.yaml` | `subs-check` 直接生成 |
+| Mihomo YAML | `http://127.0.0.1:8199/sub/mihomo.yaml` | 带分流规则的 Mihomo/Clash 订阅 |
+| Base64 | `http://127.0.0.1:8199/sub/base64.txt` | Base64 格式订阅 |
+
+### `Sub-Store` 转换订阅
+
+以下链接参照上游 [`beck-8/subs-check`](https://github.com/beck-8/subs-check) README 中的“订阅使用方法”补充：
+
 | 类型 | 地址 |
 | --- | --- |
-| 管理面板 | `http://127.0.0.1:8199/admin` |
-| 订阅地址 | `http://127.0.0.1:8199/sub/all.yaml` |
-| 订阅地址 | `http://127.0.0.1:8199/sub/mihomo.yaml` |
+| 通用订阅 | `http://127.0.0.1:8299/download/sub` |
+| URI | `http://127.0.0.1:8299/download/sub?target=URI` |
+| Mihomo / ClashMeta | `http://127.0.0.1:8299/download/sub?target=ClashMeta` |
+| Clash | `http://127.0.0.1:8299/download/sub?target=Clash` |
+| V2Ray | `http://127.0.0.1:8299/download/sub?target=V2Ray` |
+| ShadowRocket | `http://127.0.0.1:8299/download/sub?target=ShadowRocket` |
+| Quantumult X | `http://127.0.0.1:8299/download/sub?target=QX` |
+| Sing-Box | `http://127.0.0.1:8299/download/sub?target=sing-box` |
+| Surge | `http://127.0.0.1:8299/download/sub?target=Surge` |
+| Surfboard | `http://127.0.0.1:8299/download/sub?target=Surfboard` |
+| 带规则 Mihomo / Clash | `http://127.0.0.1:8299/api/file/mihomo` |
+
+`带规则 Mihomo / Clash` 订阅默认使用 `https://raw.githubusercontent.com/beck-8/override-hub/refs/heads/main/yaml/ACL4SSR_Online_Full.yaml` 覆写，可在配置中通过 `mihomo-overwrite-url` 修改。
 
 ## 📝 使用前配置
 
