@@ -63,6 +63,33 @@ sudo launchctl bootstrap system /Library/LaunchDaemons/subs-check.plist
 sudo launchctl kickstart -k system/subs-check
 ```
 
+## 🌐 Endpoints
+
+| Type | URL |
+| --- | --- |
+| Admin panel | `http://127.0.0.1:8199/admin` |
+| Subscription | `http://127.0.0.1:8199/sub/all.yaml` |
+| Subscription | `http://127.0.0.1:8199/sub/mihomo.yaml` |
+
+## 📝 Before Use
+
+Before using the admin panel, set `api-key` in the config file or provide `API_KEY` as an environment variable.
+
+After the API key is configured, open the admin panel at `http://127.0.0.1:8199/admin` and configure your subscription sources.
+
+Make sure to update the following:
+
+1. Set `api-key` in the config file or provide `API_KEY` as an environment variable.
+2. Set `sub-urls-remote` to your own remote subscription list URL.
+3. Set `sub-urls` to your own subscription URLs.
+4. Comment out or remove any template subscription URLs you do not need.
+
+Restart the service after saving the configuration:
+
+```bash
+sudo launchctl kickstart -k system/subs-check
+```
+
 ## 📁 Paths
 
 | Item | Path |

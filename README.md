@@ -63,6 +63,33 @@ sudo launchctl bootstrap system /Library/LaunchDaemons/subs-check.plist
 sudo launchctl kickstart -k system/subs-check
 ```
 
+## 🌐 访问地址
+
+| 类型 | 地址 |
+| --- | --- |
+| 管理面板 | `http://127.0.0.1:8199/admin` |
+| 订阅地址 | `http://127.0.0.1:8199/sub/all.yaml` |
+| 订阅地址 | `http://127.0.0.1:8199/sub/mihomo.yaml` |
+
+## 📝 使用前配置
+
+使用管理面板前，请先在配置文件中设置 `api-key`，或通过环境变量设置 `API_KEY`。
+
+完成 API 配置后，再打开管理面板 `http://127.0.0.1:8199/admin` 配置订阅信息。
+
+需要重点检查并修改以下内容：
+
+1. 在配置文件中设置 `api-key`，或通过环境变量设置 `API_KEY`。
+2. 将 `sub-urls-remote` 设置为你自己的远程订阅清单地址。
+3. 将 `sub-urls` 设置为你自己的订阅地址。
+4. 将模板中不需要的订阅地址注释掉或删除，避免混用示例订阅。
+
+配置完成后重启服务使其生效：
+
+```bash
+sudo launchctl kickstart -k system/subs-check
+```
+
 ## 📁 路径说明
 
 | 项目 | 路径 |
